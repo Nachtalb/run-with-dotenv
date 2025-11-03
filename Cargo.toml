@@ -1,0 +1,19 @@
+[package]
+name = "dotenv"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.51", features = ["derive"] }
+color-print = { version = "0.3.7", features = ["terminfo"] }
+dotenvy = "0.15.7"
+
+[profile.release]
+lto = "fat"
+strip = true
+opt-level = "z"
+
+[[bin]]
+name = "de"
+path = "src/main.rs"
